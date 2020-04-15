@@ -1,0 +1,101 @@
+{% extends "layout.html"%}
+{%block body%}
+<div class='text-center '><h3><a href='/api/{{c._isbn}}'>API</a></h3></div>
+<body>
+    <div class='text-center text-danger'>{{message}}</div>
+        <div>
+            <hr class="featurette-divider">
+            </div>
+            <h2 style="color: #216353;font-style:initial;text-align: center;"><p class="font-weight-bold">About The Book</p></h2>
+        <ul style="color: #216353;font-style:initial;">   
+            <li>
+            ISBN : {{c._isbn}}
+            </li>
+            <li>
+            TITLE : {{c._title}} 
+            </li>
+            <li>   
+            AUTHOR : {{c.author}}
+            </li>
+            <li>
+            YEAR : {{c.year}}     
+            </li>
+        </ul>
+        
+        <div class="container">
+            <hr class="featurette-divider">
+        </div>
+     <div class='container  row no-gutters'>
+               
+        <div class='col' style="margin-left: 3cm;">
+                    {% if data %}
+            <h3 style="color: #216353;font-style:initial;">Reviews :</h3>
+        
+            {% for x in data %}
+            <div class="card border-success mb-3" style="max-width: 18rem;">
+                <div class="card-body">
+                <h4>{{x.name}}</h4>
+                <h5>REVIEW : {{x.opinion_rev}}</h5>
+                <h5>Rating : {{x.score}}</h5>
+                </div>
+            </div>
+            {% endfor %} 
+            {% endif %} 
+                </div>
+            
+                <div class='col text-center bg-dark text-white shadow-lg p-3 mb-5  rounded'>
+                    <h2 class=''>Goodread.com rating: </h2>
+                    <h1>{{average_rating}}</h1>
+                    <h5 class=''>Reviews received: </h5>
+                    <h3>{{work_ratings_count}}</h3>
+                </div>
+            </div>
+            <div class="container">
+                <hr class="featurette-divider">
+            </div>
+<form class='form-group ' action="{{url_for('book',isbn=isbn,name=name,title=title)}}" method="POST">
+    <div class="input-group" style="width: 17cm;height:3cm ;margin-left: 3cm; ">
+        <div class="input-group-prepend">
+            <span class="input-group-text">Write your review...</span>
+        </div>
+            <textarea class="form-control" aria-label="With textarea" name='rev'></textarea>
+        </div> 
+        <div class='container  row no-gutters'> 
+            <div class='col'>
+                <div class="form-group" style="width: 5cm;margin-left: 2.6cm;margin-top: 0.5cm;"> 
+                    <select class="form-control" name="score" required>
+                        <option selected value disabled> -- Select Rating -- </option>
+                        <option value="1"> 1 star </option>
+                        <option value="2"> 2 stars </option>
+                        <option value="3"> 3 stars </option>
+                        <option value="4"> 4 stars </option>
+                        <option value="5"> 5 stars </option>
+                    </select> 
+                </div>
+            </div>
+            <div class='col'>
+                <div class="form-group" style="width: 7cm;margin-right: 9.7cm;margin-top: 0.5cm;">
+                    <select name="action" class="form-control" required>
+                        <option selected value disabled> -- select action -- </option>
+                        <option value="addrev">Add Review</option>
+                        <option value="update">Update</option>
+                        <option value="delete">Delete</option>
+                    </select> 
+                </div>
+            </div>
+        </div>  
+        <div class="form-group"style="margin-left: 3cm;margin-top: 0.2cm;">
+            <button class="btn btn-primary" style="width: 17.1cm;">Send</button>
+        </div>
+    </div>
+</form>   
+<h5><footer class="container">
+    <div>
+        <hr class="featurette-divider">
+    </div>
+    <p class="float-right"><a href="#">Back to top</a></p>
+    <p>&copy; 2020 Company, Inc. &middot; <a href="{{url_for('index',name = name,user_id=inf.id)}}">HOME</a> &middot; <a href="#">CONTACT US</a></p>
+</footer></h5>
+
+</body>
+{%endblock%}

@@ -1,0 +1,28 @@
+
+{
+    "python.pythonPath": "C:\\Program Files (x86)\\Python38-32\\python.exe",
+    "sqltools.connections": [
+        {
+            "database": "deh4gfh9voqfg",
+            "dialect": "PostgreSQL",
+            "name": "postgresql-aerodynamic-69332",
+            "password": "1c3930fe8290e61b78a143dcfb2025e97caf4bf81c7879927a8a8e965dee8e1b",
+            "port": 5432,
+            "server": "ec2-46-137-177-160.eu-west-1.compute.amazonaws.com",
+            "username": "xeizbwanflaypp"
+        },
+        {
+            "database": "deh4gfh9voqfg",
+            "dialect": "PostgreSQL",
+            "name": "postgresql-aerodynamic-69332",
+            "password": "1c3930fe8290e61b78a143dcfb2025e97caf4bf81c7879927a8a8e965dee8e1b",
+            "port": 5432,
+            "server": "ec2-46-137-177-160.eu-west-1.compute.amazonaws.com",
+            "username": "xeizbwanflaypp",
+            "pgOptions": {
+                "ssl":true
+            }
+        }
+    ],
+    
+}

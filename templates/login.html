@@ -1,0 +1,57 @@
+{% extends "layout.html"%}
+{%block body%}
+
+<style>
+    .card-title{
+        padding-left: 2.5cm;
+    }
+    .input-group {
+        height: 1.25cm;
+        width: 8cm;
+    }
+    .btn{
+        width: 8cm;
+    }
+    .featurette-divider{
+        width: 8cm;
+        margin-left: 0cm;
+    }
+</style>
+<div class="mx-auto" style="width: 400px ;margin-top: 2cm;padding: 0.5cm;">
+    <div class="card-body">
+        <h3 class="card-title" style="color: #216353;font-style:initial;"><p class="font-weight-bold">Sign In</p></h3>
+        <h6 class="card-title"><p class="font-weight-lighte"></p></h6>
+        <hr class="featurette-divider">
+        <form class="form-signin" action="{{ url_for('login')}}" method="POST">
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">@</span>
+                </div>
+                <input type="text" class="form-control" name="user" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+            </div>
+            <div class="input-group mb-3">
+                <div class="input-group-prepend">
+                    <span class="input-group-text" id="basic-addon1">🔑</span>
+                </div>
+                <input  class="form-control"  type="password" name="password"  placeholder="Password" aria-label="Password" aria-describedby="basic-addon1">
+            </div>
+            <div class="form-group"> 
+                <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+                <a class="btn btn-primary" href="{{ url_for('register') }}" role="button">Register</a>
+            </div>
+        </form>
+    </div>
+</div>
+<h1>{{message}}</h1>
+<footer class="container">
+    <div class="fixed-bottom" style="width: 1300px;margin-left: 0.75cm;">
+    <div>
+      <hr class="featurette-divider2" style="width: 34cm;background-color: rgba(0, 0, 0, 0.247);">
+    </div>
+    <div class="alert alert-primary" style="background-color: #75daadd0;" role="alert">
+      <h6><a href="" class="alert-link">Register Now</a></h6>
+  </div>
+  </div>
+</footer>
+
+{%endblock%}
